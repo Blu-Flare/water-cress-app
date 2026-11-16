@@ -4,9 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
+// Keep React Router in sync with Vite's deployment base (e.g. /water-cress-app/).
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename || '/'}>
       <App />
     </BrowserRouter>
   </StrictMode>,
