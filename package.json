@@ -6,7 +6,7 @@
   "description": "Premium paving, tiling and hardscaping website for Water Cress Designers.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
     "preview": "vite preview"
   },
   "dependencies": {
