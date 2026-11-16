@@ -151,7 +151,7 @@ water-cress-app/
 | Page copy / headings | individual files in `src/pages/` |
 | Brand colours / shadows / animations | `tailwind.config.js`, `src/index.css` |
 
-All imagery currently uses remote Unsplash URLs so the site works immediately. For production, replace these with optimised local images in `public/assets/images/` (or a CDN) to improve loading performance and remove third-party dependency.
+All displayed imagery is imported from the local `assets/` folder at the project root, so the site has no third-party image dependency. Add or replace photos there and update the matching import in `src/data/services.js`, `src/data/projects.js`, or the relevant page/component.
 
 ---
 
@@ -159,9 +159,19 @@ All imagery currently uses remote Unsplash URLs so the site works immediately. F
 
 The app is a client-side SPA, so the host must serve `index.html` for unknown paths.
 
+- **GitHub Pages** — live at <https://blu-flare.github.io/water-cress-app/>. The published build lives in `docs/` and is served by GitHub Pages. Vite uses `base: '/water-cress-app/'` so assets resolve under the project path, and `docs/404.html` provides the SPA fallback for deep links.
 - **Netlify** — `public/_redirects` is included (`/* /index.html 200`).
 - **Vercel** — `vercel.json` is included with the rewrite.
 - **Apache / Nginx** — add a fallback rewrite to `/index.html`.
 - **Static hosts** — build with `npm run build` and upload `dist/`.
 
-Before going live, update the canonical/OG domain (`watercressdesigners.co.bw`) in `index.html`, `public/robots.txt` and `public/sitemap.xml` if the live domain differs.
+To publish an update to GitHub Pages, rebuild and refresh the `docs/` folder, then commit and push:
+
+```bash
+npm run deploy:docs
+git add docs
+git commit -m "Update GitHub Pages build"
+git push
+```
+
+Before going live, update the canonical/OG domain (`watercressdesigners.co.bw`) in `index.html`, `public/robots.txt`, `public/sitemap.xml` and the built `docs/` copies if the live domain differs.
