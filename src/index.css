@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   WATER CRESS DESIGNERS — DESIGN SYSTEM
+   Graphite / Teal / Renewal Green
+   ========================================================= */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg-dark: #1c1c1c;
+    --bg-teal: #002e32;
+    --accent-green: #bad435;
+    --pure-white: #ffffff;
+    --cool-grey: #f2f5f4;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-graphite-industrial font-sans text-cool-grey antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold tracking-tight text-pure-white;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: #bad435;
+    color: #1c1c1c;
+  }
+
+  :focus-visible {
+    outline: 2px solid #bad435;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #151515;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0c474c;
+    border-radius: 999px;
+    border: 2px solid #151515;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bad435;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0 1000px #0a2326 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.24em] text-renewal-green;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-transparent px-7 py-3.5 text-center text-[0.8rem] font-extrabold uppercase tracking-[0.12em] transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-renewal-green bg-transparent px-7 py-3.5 text-center text-[0.8rem] font-extrabold uppercase tracking-[0.12em] text-pure-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-renewal-green hover:text-graphite-industrial hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-pure-white/80 bg-transparent px-7 py-3.5 text-center text-[0.8rem] font-extrabold uppercase tracking-[0.12em] text-pure-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-pure-white hover:text-graphite-industrial disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-renewal-green bg-renewal-green px-7 py-3.5 text-center text-[0.8rem] font-extrabold uppercase tracking-[0.12em] text-graphite-industrial transition-all duration-300 hover:-translate-y-0.5 hover:border-pure-white hover:bg-pure-white disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-submit {
+    @apply inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-renewal-green bg-renewal-green px-6 py-4 text-center text-sm font-extrabold uppercase tracking-[0.12em] text-graphite-industrial transition-all duration-300 hover:-translate-y-0.5 hover:border-pure-white hover:bg-pure-white disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-pure-white/15 bg-white/5 px-7 py-3.5 text-center text-[0.8rem] font-extrabold uppercase tracking-[0.12em] text-pure-white backdrop-blur transition-all duration-300 hover:border-renewal-green/50 hover:bg-white/10 hover:text-renewal-green disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .form-control {
+    @apply w-full rounded-lg border border-cool-grey/20 bg-black/40 px-4 py-3.5 font-sans text-base text-pure-white transition-colors duration-300 placeholder:text-cool-grey/30 focus:border-renewal-green focus:bg-black/60 focus:outline-none;
+  }
+
+  .form-control option {
+    background-color: #002e32;
+    color: #f2f5f4;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-semibold text-pure-white;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-renewal-green/15 bg-graphite-teal/60 backdrop-blur-md;
+  }
+
+  .text-scrim {
+    @apply rounded-2xl border border-renewal-green/20 bg-graphite-teal/85 shadow-teal-glow backdrop-blur-xl;
+  }
+
+  .nav-link {
+    @apply relative rounded-full px-3 py-2 text-sm font-semibold text-cool-grey/85 transition-colors duration-300 hover:text-renewal-green;
+  }
+
+  .nav-link-active {
+    @apply text-renewal-green;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-renewal-green;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1 font-semibold text-renewal-green transition-colors hover:text-pure-white;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-0 bg-pure-white transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  .card-focus {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-renewal-green;
+  }
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 18px 45px -18px rgba(186, 212, 53, 0.55);
+  }
+
+  /* Signature animated sheen used across cards and the modal */
+  .gloss-sweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    transform: skewX(-25deg);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.16),
+      transparent
+    );
+    animation: sweep 5s infinite;
+  }
+
+  @keyframes sweep {
+    0% {
+      left: -100%;
+    }
+    20% {
+      left: 200%;
+    }
+    100% {
+      left: 200%;
+    }
+  }
+
+  /* Word pop classes kept for parity with the static reference build */
+  .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .word.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .reveal-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .perspective-1200 {
+    perspective: 1200px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-right {
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(186, 212, 53, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(186, 212, 53, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(120deg, #ffffff 0%, #d5e97a 45%, #bad435 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
